@@ -37,7 +37,7 @@ class Recipe {
       String ingredient = data['strIngredient$i'];
       String measure = data['strMeasure$i'];
 
-      if (ingredient != null && ingredient.trim().isNotEmpty) {
+      if (ingredient.trim().isNotEmpty) {
         ingredients![ingredient] = measure ?? '';
       }
     }

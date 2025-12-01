@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:recipe_app/widgets/recipe_card.dart';
 
 import '../models/recipe_model.dart';
-import 'category_card.dart';
 
 class RecipeGrid extends StatefulWidget {
   final List<Recipe> recipes;

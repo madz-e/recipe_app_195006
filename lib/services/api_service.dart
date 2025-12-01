@@ -59,10 +59,15 @@ class ApiService {
   }
 
   Future<Recipe> loadRecipeDetails(id) async {
-    print('vlaga u details');
-    final detailResponse = await http.get(
+    http.Response detailResponse;
+
+    if (id=="random"){
+      detailResponse = await http.get(
+          Uri.parse('https://www.themealdb.com/api/json/v1/1/random.php'));
+    } else{
+      detailResponse = await http.get(
         Uri.parse('https://www.themealdb.com/api/json/v1/1/lookup.php?i=$id')
-    );
+    );}
 
     if (detailResponse.statusCode == 200) {
       final data = json.decode(detailResponse.body);

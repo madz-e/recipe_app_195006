@@ -27,7 +27,7 @@ class _DetailsPageState extends State<DetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.pink.shade50,
+      backgroundColor: Colors.pink.shade100,
       body:
       _isLoading
           ? const Center(child: CircularProgressIndicator())
@@ -36,28 +36,43 @@ class _DetailsPageState extends State<DetailsPage> {
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 50.0, left: 16.0),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: IconButton(
+              child: Row(children: [
+                IconButton(
                   onPressed: () => Navigator.pop(context),
                   icon: const Icon(Icons.arrow_back, color: Colors.black),
                 ),
-              ),
+                Expanded(child: Text(
+                  'Random Recipe',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),textAlign: TextAlign.center,
+                ))
+              ],)
             ),
             Image.network(_detailedRecipe!.img),
             Divider(),
-            Text(_detailedRecipe!.name, style: TextStyle(fontSize: 20),textAlign: TextAlign.center,),
+            SizedBox(height: 10),
+            Text(_detailedRecipe!.name, style: TextStyle(fontSize: 22),textAlign: TextAlign.center,),
+            SizedBox(height: 10),
             Divider(),
-            Text('Ingredients:', style: TextStyle(fontSize: 20),textAlign: TextAlign.center,),
+            Text('Ingredients:', style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
             Column(
               children: _detailedRecipe!.ingredients!.entries.map((r) {
-                return Text('- ${r.value} ${r.key}');
+                return Padding(padding: const EdgeInsets.symmetric(horizontal: 20),
+                child:  Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    '- ${r.value} ${r.key}',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ),
+                );
               }).toList(),
             ),
             const Divider(),
-            const Text('Instructions:', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 10),
-            Text(_detailedRecipe!.instructions!),
+            Text('Instructions:', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),textAlign: TextAlign.justify,),
+            Padding(padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child:
+                Text(_detailedRecipe!.instructions!,style: TextStyle(fontSize: 20),textAlign: TextAlign.justify),
+                ),
             const Divider(),
             Text(
               'YouTube Link',

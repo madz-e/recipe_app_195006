@@ -132,18 +132,16 @@ class _RecipesPageState extends State<RecipesPage> {
       _isSearching = true;
     });
 
-    try {
-      final recipes = await _apiService.searchRecipeByName(name);
-      setState(() {
-        _filteredRecipes = _recipes;
-        _isSearching = false;
-      });
-    } catch (error) {
-      setState(() {
-        _isSearching = false;
-        _filteredRecipes = [];
-      });
-      print('Error searching recipes: $error');
+    final filteredRecipes = _recipes.where((recipe)=>recipe.name.toLowerCase().contains(name)).toList();
+
+    setState(() {
+      _isSearching = false;
+      if(filteredRecipes!=null){
+        _filteredRecipes = filteredRecipes;
+      }else{
+        _filteredRecipes=[];
+      }
+    });
+
     }
   }
-}

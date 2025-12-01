@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../models/category_model.dart';
 import '../models/recipe_model.dart';
 import '../screens/details.dart';
 

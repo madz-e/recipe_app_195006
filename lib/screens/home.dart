@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../models/category_model.dart';
 import '../services/api_service.dart';
 import '../widgets/category_grid.dart';
+import 'details.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -18,7 +20,6 @@ class _MyHomePageState extends State<MyHomePage> {
   late final List<RCategory> _categories;
   List<RCategory> _filteredCategories = [];
   bool _isLoading = true;
-  bool _isSearching = false;
   String _searchQuery = '';
   final ApiService _apiService = ApiService();
   final TextEditingController _searchController = TextEditingController();
@@ -38,6 +39,25 @@ class _MyHomePageState extends State<MyHomePage> {
             .colorScheme
             .inversePrimary,
         title: Text(widget.title),
+        actions: <Widget>[
+          IconButton(
+          icon: const Icon(FontAwesomeIcons.clover, color: Colors.white,size: 35),
+          tooltip: 'Go to a random recipe!',
+          onPressed: () async {
+            try{
+              final randomRecipe = await _apiService.loadRecipeDetails("random");
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailsPage(recipe: randomRecipe),
+                  ));
+            }catch(error){
+              print("error loading random recipe cause: $error");
+            }
+          },
+        )
+
+        ],
       ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
@@ -115,4 +135,5 @@ class _MyHomePageState extends State<MyHomePage> {
       }
     });
   }
+
 }
