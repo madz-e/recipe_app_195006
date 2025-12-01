@@ -1,5 +1,5 @@
 # recipe_app
 
 An app meant to show recipes
-
-    
+LINK TO DEMMO WALKTROUGH
+https://finkiukim-my.sharepoint.com/:v:/g/personal/eva_madzhar_students_finki_ukim_mk/IQBFqJt9lUNXT6mdfgVZcS3qAalVrRvyiHKym1GhvUfaxEU?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=pbOKXy
