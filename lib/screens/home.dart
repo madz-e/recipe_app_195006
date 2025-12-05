@@ -5,6 +5,7 @@ import '../models/category_model.dart';
 import '../services/api_service.dart';
 import '../widgets/category_grid.dart';
 import 'details.dart';
+import 'favorites.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -55,7 +56,16 @@ class _MyHomePageState extends State<MyHomePage> {
               print("error loading random recipe cause: $error");
             }
           },
-        )
+        ),
+          IconButton(
+              onPressed: (){
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => FavoritesPage(),
+                    ));
+              },
+              icon: const Icon(Icons.favorite,color: Colors.white))
 
         ],
       ),

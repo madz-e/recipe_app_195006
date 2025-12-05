@@ -5,6 +5,7 @@ class Recipe {
   String? instructions;
   String? youtube;
   Map<String, String>? ingredients;
+  bool isFavorite;
 
 
   Recipe({
@@ -14,8 +15,7 @@ class Recipe {
     this.instructions,
     this.youtube,
     this.ingredients,
-
-
+    this.isFavorite=false
   });
   Recipe.fromBasicJson(Map<String, dynamic> data)
       : id = int.parse(data['idMeal']),
@@ -23,12 +23,14 @@ class Recipe {
         img = data['strMealThumb'],
         instructions = null,
         youtube = null,
-        ingredients = null;
+        ingredients = null,
+        isFavorite = false;
 
   Recipe.fromJson(Map<String, dynamic> data)
       : id =  int.parse(data['idMeal']),
         name = data['strMeal'],
-        img =data['strMealThumb']
+        img =data['strMealThumb'],
+        isFavorite=false
   {
       instructions = data['strInstructions'];
       youtube = data['strYoutube'];
@@ -50,6 +52,6 @@ class Recipe {
     'instructions': instructions,
     'youtube': youtube,
     'ingredients': ingredients,
-
+    'isFavorite': isFavorite,
   };
 }
