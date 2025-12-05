@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1099010396034",
+    "project_id": "recipe-195006-ssp",
+    "storage_bucket": "recipe-195006-ssp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1099010396034:android:5710e29e6a8bc6c414099b",
+        "android_client_info": {
+          "package_name": "com.example.recipe_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvBm-5uE5IZSr-GpWD4I7uYex1tT_zl0A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
